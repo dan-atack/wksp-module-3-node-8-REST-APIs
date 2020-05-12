@@ -18,6 +18,55 @@ Provide him with a series of REST endpoints that meet all, or most of the RESTfu
 
 _This activity is more about the discussion in how to best organize data endpoints. There will not be any coding, unless you really want to provide Greg with working endpoints that he can test in Insomnia._
 
+Endpoints:
+
+    Clients:
+
+        /Walkins/:userid
+
+        /Tables:table/seats:seat/user:userid
+
+    Database:
+
+        MenuItems/:item/food:food  => food is takes ingredients and the cook processes them into menu items
+
+        MenuItems/:item/drink:drink => drink takes ingredients and the barista processes them into drinks
+
+        Ingredients/:ingredient
+
+        Money:
+
+            /accountsRecievable - sales revenue
+
+
+            /accountsPayable - wages, ingredients, rent, etc.
+    
+    Server (employees):
+
+    /Waiter (order) {
+        get_Order (promise)
+        bring order (promise Resolved)
+        get money (check if client is done eating (repeat if no))
+        clear table when client leaves
+        check condiment supply at table, if low replenish
+    }
+
+    /Barrista (order) {
+        get_Order (promise)
+        bring order (promise Resolved)
+        get money (check if client is done eating (repeat if no))
+        clear bar space when client leaves
+    }
+
+    /Barrista (makeDrink) {
+        take ingredients
+        return drink to server
+    }
+
+
+
+
+
 ---
 
 ## Exercise 2 (Optional)
@@ -38,7 +87,7 @@ Obviously, this could all be done in the frontend, with vanilla JS, but where is
 
 ### Guidelines
 
-You will divide your concerns in two: the frontend, and the backend. Start with the backend. Only move on to the fronted once you have a fully functional API.
+You will divide your concerns in two: the frontend, and the backend. Start with the backend. Only move on to the frontend once you have a fully functional API.
 
 #### Backend
 
